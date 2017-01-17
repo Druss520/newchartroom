@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>注册</title>
+    <link rel="stylesheet" type="text/css" href="stylesheets/sign.css">
+    <!--<link rel="stylesheet" href="./stylesheets/style.css">-->
+    <script type="text/javascript" src="lib/angular/angular.js"></script>
+    <script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+
+    <script type="text/javascript" src="webApp.js"></script>
+    <script type="text/javascript" src="angularservice/userinfofactory.js"></script>
+    <script type="text/javascript" src="angularservice/routeService.js"></script>
+    <script type="text/javascript" src="angularcontroller/accessController.js"></script>
+
+</head>
+<body ng-app="webapp">
+<div id="img_bg" style="background-image: url('./images/IMG_2797.JPG')"></div>
+<span class="clear">
+    <div class="hehe" ></div>
+<div id="content1" ng-controller="signcontroller">
+    <form >
+        <div class="form_line">
+            <div class="form_label" style="color: #F9F5FA">用户名</div>
+            <input class="gg" type="text" name="username" ng-model="sign.username" autocomplete="off"/>
+        </div>
+        <div class="form_line">
+            <div class="form_label" style="color: #F9F5FA">密码</div>
+            <input class="gg" type="password" name="password" ng-model="sign.password" autocomplete="off"/>
+        </div>
+        <div class="form_line">
+            <div class="form_label"></div>
+            <button class="button" type="button" ng-click="signup1()">注册</button>
+            <button class="button" type="reset">取消</button>
+        </div>
+        <div class="alert" style="color: #ffffff" ng-bind="hehe1"></div>
+    </form>
+
+</div>
+
+</span>
+
+<!--<script src="/socket.io/socket.io.js"></script>-->
+
+</body>
+</html>

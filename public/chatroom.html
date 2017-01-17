@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatRoom</title>
+    <link type="text/css" rel="stylesheet" href="stylesheets/style.css">
+
+</head>
+
+<body ng-app="webapp" ng-controller="chatController" >
+
+<!--<div id="img_bg">-->
+
+<div class="chatbox" id="from"><label  ng-bind="fromname" ></label></div>
+
+<div class="chatbox" id="left-container" style="background-color: #F9F5FA">
+
+<div id="messages" auto-scroll-top="autoscrolltop">
+    <div ng-class="{1:'xitongxiaoxi',2:'wojiji',3:'fromothers'}[msg.type]" ng-repeat="msg in allmsg"><div class="littlebox">{{msg.say}}</div><br/><label ng-class="{1:'me',2:'other'}[msg.who]">{{msg.msg}}</label></div>
+    <!--<div class="xitongxiaoxi"  ng-repeat="sysmsg in sysmessages">-->
+        <!--系统消息({{sysmsg.time}}):{{sysmsg.msg}}<br/>-->
+    <!--</div>-->
+    <!--<div class="wojiji" ng-repeat="msg in case1">你({{msg.time}})对所有人说:<br/><br/><label class="me">{{msg.data}}</label><br/></div>-->
+    <!--<div class="fromothers" ng-repeat="msg in case2">{{msg.from}}({{msg.time}})说:<br/><br/><label class="other">{{msg.data}}</label><br/></div>-->
+    <!--<div class="fromothers" ng-repeat="msg in case3">{{msg.from}}({{msg.time}})悄悄对你说:<br/><br/><label class="other">{{msg.data}}</label><br/></div>-->
+    <!--<div class="wojiji" ng-repeat="msg in case4">你({{msg.time}})悄悄对{{msg.to}}说：<br/><br/><label class="me">{{msg.data}}</label><br/></div>-->
+</div>
+<form id="wtf">
+    <div class="chatbox" id="form-container" style="height: 36px">
+        <label id="to" ng-bind="toname" >所有人</label>
+        <input id="m" autocomplete="off" ng-model="textmsg" focus-me="textfocus"/>
+        <button style="font-size: 18px; font-weight: bold; color: #4e4e4e" id="gogogo" ng-click="sendmsg(textmsg,$event)">发送</button>
+    </div>
+</form>
+
+
+</div>
+
+
+<div class="chatbox" id="right-container" style="background-color: #F9F5FA">
+    <ul id="online-user" >
+        <!--<li alt="all" onselectstart="return false" ng-dblclick="dbclick()">所有人</li>-->
+        <li alt="'{{user}}'" onselectstart="return false" ng-repeat="user in onlineUsers track by $index" ng-dblclick="dbclick($index)">{{user}}</li>
+    </ul>
+</div>
+<!--</div>-->
+<!--<div style="widht:0px; height:0px;"><embed id="ring"  ng-src={{music}} loop="0" autostart="true" hidden="true" style="height:0; width:0;"></embed></div>-->
+
+<script src="/socket.io/socket.io.js"></script>
+
+<script type="text/javascript" src="lib/angular/angular.js"></script>
+<script type="text/javascript" src="lib/jquery/dist/jquery.js"></script>
+
+<script type="text/javascript" src="webApp.js"></script>
+<script type="text/javascript" src="angularservice/userinfofactory.js"></script>
+<script type="text/javascript" src="angularservice/routeService.js"></script>
+<script type="text/javascript" src="angularservice/socketFactory.js"></script>
+<script type="text/javascript" src="angularcontroller/AutoScroll.js"></script>
+<script type="text/javascript" src="angularcontroller/chatAutoFocus.js"></script>
+<script type="text/javascript" src="angularcontroller/accessController.js"></script>
+<script type="text/javascript" src="angularcontroller/chatController.js"></script>
+
+</body>
+</html>

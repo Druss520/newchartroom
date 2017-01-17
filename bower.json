@@ -1,0 +1,20 @@
+{
+  "name": "chatroom",
+  "description": "chat",
+  "main": "bin/www",
+  "authors": [
+    "Lizhuo Yang <druss520@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "chat"
+  ],
+  "homepage": "index.html",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
